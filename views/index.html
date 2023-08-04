@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lista de platos</h1>
+        <div class="row g-3">
+            <div class="col-5">
+                <input type="text" class="form-control" placeholder="Buscar por _id" id="idObject"
+                    aria-label="First name">
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-primary" onclick="fillData()">Buscar</button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-primary" onclick="cleanData()">Limpiar</button>
+            </div>
+            <div class="card">
+                <div class="col-12" id="divTable">
+
+                </div>
+            </div>
+
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>object id</th>
+                    <th>idDish</th>
+                    <th>name</th>
+                    <th>calories</th>
+                    <th>isVegetarian</th>
+                    <th>Value</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <script>
+                    loadDishes('').then(resp => {
+                        if (resp.state) {
+                            resp.data.forEach(dish => {
+                                const row = document.createElement('tr')
+                                const colObId = document.createElement('td')
+                                colObId.append(document.createTextNode(`${dish._id}`))
+                                row.append(colObId)
+                                const colId = document.createElement('td')
+                                colId.append(document.createTextNode(`${dish.idDish}`))
+                                row.append(colId)
+                                const colName = document.createElement('td')
+                                colName.append(document.createTextNode(`${dish.name}`))
+                                row.append(colName)
+                                const colCalories = document.createElement('td')
+                                colCalories.append(document.createTextNode(`${dish.calories}`))
+                                row.append(colCalories)
+                                const colVegetarian = document.createElement('td')
+                                if(dish.isVegetarian == true){
+                                    colVegetarian.append(document.createTextNode(`Si`))
+                                    row.append(colVegetarian)
+                                }else{
+                                    colVegetarian.append(document.createTextNode(`No`))
+                                    row.append(colVegetarian)
+                                }
+                                
+                                const colValue = document.createElement('td')
+                                colValue.append(document.createTextNode(`${dish.value}`))
+                                row.append(colValue)
+                                const colComment = document.createElement('td')
+                                colComment.append(document.createTextNode(`${dish.comments}`))
+                                row.append(colComment)
+                                document.getElementById('tbody').append(row)
+                            });
+                        } else {
+                            console.log('error')
+                        }
+                    })
+
+                </script>
+            </tbody>
+        </table>
+        <div class="col-12 text-center">
+            <button type="button" class="btn btn-primary" onclick="location.href='/newDish';">Crear plato</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

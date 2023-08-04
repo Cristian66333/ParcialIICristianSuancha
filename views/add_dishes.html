@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo plato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Adicionar Plato</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="idDish" class="col-sm-2 col-form-label">Id</label>
+                      <input type="text" class="form-control" placeholder="Id plato" aria-label="First name" id="idDish">
+                    </div>
+                    <div class="col-6">
+                        <label for="nameDish" class="col-sm-2 col-form-label">Nombre</label>
+                      <input type="text" class="form-control" placeholder="Name" aria-label="Last name" id="nameDish">
+                    </div>
+                    <div class="col-6">
+                        <label for="caloriesDish" class="col-sm-2 col-form-label">Calorias</label>
+                        <input type="number" class="form-control" placeholder="calories" aria-label="Last name" id="caloriesDish">
+                    </div>
+                    <div class="col-6">
+                        <label for="vegetarianDish" class="col-sm-2 col-form-label">Vegetariano</label>
+                        <select class="form-select" aria-label="" id="vegetarianDish">
+                            <option value="true" selected>Si</option>
+                            <option value="false">No</option>
+
+                          </select>
+                      </div>
+                      <div class="col-6">
+                        <label for="valueDish" class="col-sm-2 col-form-label">Valor</label>
+                        <input type="number" class="form-control" placeholder="Value" aria-label="Last name" id="valueDish">
+                      </div>
+                      <div class="col-6">
+                        <label for="commentsDish" class="col-sm-2 col-form-label">Comentarios</label>
+                          <textarea type="" class="form-control" placeholder="comments" aria-label="" id="commentsDish"></textarea>
+                      </div>
+                </div>
+                &nbsp;
+                <div class="row ">
+                    <button type="button" class="btn btn-warning col-2" onclick="location.href='/';">Volver</button>
+                    <div class="col-2"></div>
+                    <button class="btn btn-primary col-2" id="btnSend">Enviar plato</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
